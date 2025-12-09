@@ -1,0 +1,43 @@
+body {
+    background: #0a0f1a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 8px;
+    height: 100vh;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  .block {
+    border: 1px solid #233;
+    background: #111723;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .topbar {
+    grid-column: 1 / 4;
+  }
+  .left-large {
+    grid-row: 2 / 4;
+  }
+  .right-col {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  .bottom {
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
