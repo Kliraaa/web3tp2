@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.13.0/dist/maplibre-gl.css"/>
 
     <!-- JS -->
     <script type="importmap">
@@ -15,35 +16,53 @@
             "imports": {            
                 "animejs": "./node_modules/animejs/dist/bundles/anime.esm.min.js",
                 "chart.js/auto": "./node_modules/chart.js/auto/auto.js",
-                "@kurkle/color": "./node_modules/@kurkle/color/dist/color.esm.js"
+                "@kurkle/color": "./node_modules/@kurkle/color/dist/color.esm.js",
+                "three": "./node_modules/three/build/three.module.js",
+                "three/examples/jsm/loaders/OBJLoader": "./node_modules/three/examples/jsm/loaders/OBJLoader.js"
             }
         }
     </script>
     <script src="./src/js/animejs.js" type="module"></script>
     <script src="./src/js/chartjs.js" type="module"></script>
 
+    <script src="https://unpkg.com/maplibre-gl@5.13.0/dist/maplibre-gl.js"></script>
     <script src="./src/js/bootstrap.js" defer></script>
+    <script src="./src/js/maplibre.js" defer></script>
+    <script src="./src/js/zdog.js" defer></script>
+    <script src="./src/js/vfx.js" defer></script>
+    <script src="./src/js/tonejs.js" defer></script>
+    <script src="./src/js/three.js" type="module"></script>
+    
+
 </head>
 <body>
     <div class="grid">
-  <div class="block topbar">HEADER — SYSTEM STATUS — MARQUEE</div>
+        <div class="block topbar">HEADER — SYSTEM STATUS — MARQUEE</div>
 
-  <div class="block left-large">HAND VISUAL (Zdog)</div>
+        <div class="block left-large" id="cyber-hand"></div>
 
-  <div class="block">MISSION TEXT (Typing + Tone.js)</div>
+        <div class="block message">
+            <h1>MISSION BRIEFING:</h1><i class="bi bi-bullseye"></i>
+            <p>You have been deployed to track a high-priority subject moving through the restricted zone.</p>
+            <p>Your cyber-arm has been upgraded with enhanced sensors, autonomous threat detection, and live diagnostic feedback.</p>
+            <p>Follow the signal trace.</p>
+            <p>Maintain a low profile.</p>
+            <p>Report any anomalies immediately.</p>
+            <p>Proceed when ready.</p>
+        </div>
 
-  <div class="right-col">
-    <div class="block">POWER LEVEL</div>
-    <div class="block">MAP / TARGET TRACKING</div>
-    <div class="block">REACTION TIME</div>
-  </div>
+        <div class="right-col">
+            <div class="block">POWER LEVEL</div>
+            <div class="block"><div id="carte"></div></div>
+            <div class="block">REACTION TIME</div>
+        </div>
 
-  <div class="bottom">
-    <div class="block">PULSE</div>
-    <div class="block">BLOOD FUEL</div>
-    <div class="block">DAMAGE LEVEL</div>
-    <div class="block">HEART RATE WARNING</div>
-  </div>
-</div>
+        <div class="bottom">
+            <div class="block">PULSE</div>
+            <div class="block">BLOOD FUEL</div>
+            <div class="block">DAMAGE LEVEL</div>
+            <div class="block">HEART RATE WARNING</div>
+        </div>
+    </div>
 </body>
 </html>
